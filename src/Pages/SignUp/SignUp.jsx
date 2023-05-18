@@ -1,12 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import signUpImg from '../../assets/login/login.jpg'
-import { FaFacebook, FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { authContext } from "../../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
-  const { createUser, logOut, googleSignIn,setLoading } = useContext(authContext);
+  const { createUser, logOut,setLoading } = useContext(authContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();

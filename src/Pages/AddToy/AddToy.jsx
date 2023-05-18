@@ -42,9 +42,9 @@ const AddToy = () => {
     })
   }
   return (
-    <div>
-      <div className="lg:w-2/3 mx-auto bg-base-200 p-12 mt-20">
-        <h3 className="text-3xl mb-4  font-bold text-center">Add A Car Toy</h3>
+    <div className="p-6">
+      <div className="lg:w-2/3 mx-auto bg-base-200 p-12 mt-12 shadow-xl">
+        <h3 className="text-3xl mb-4  font-bold text-center">Add A Toy</h3>
         <form onSubmit={handleAddToy}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="form-control">
@@ -149,7 +149,7 @@ const AddToy = () => {
               />
             </div>
             <textarea
-              className=" w-full lg:w-[755px] h-[150px] p-8"
+              className=" w-full lg:w-[725px] h-[150px] p-8"
               name="description"
               placeholder="Detail description"
               required
