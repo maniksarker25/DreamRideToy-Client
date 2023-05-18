@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { authContext } from "../../Provider/AuthProvider";
 import LoadingSpiner from "../LoadingSpiner/LoadingSpiner";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
   const { user,loading } = useContext(authContext);
@@ -22,6 +23,23 @@ const AddToy = () => {
     const description = form.description.value;
     const toy = {toyName,pictureUrl,sellerName,sellerEmail,category,price,rating,availableQuantity,description};
     console.log(toy)
+    fetch('http://localhost:5000/addToy',{
+        method:'POST',
+        headers:{'content-type':'application/json'},
+        body:JSON.stringify(toy)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        if(data.insertedId){
+            Swal.fire({
+              title: 'Success!',
+              text: 'Toy Added Successfully',
+              icon: 'success',
+              confirmButtonText: 'Okey'
+            })
+            form.reset();
+          }
+    })
   }
   return (
     <div>
@@ -110,9 +128,10 @@ const AddToy = () => {
                 <span className="label-text font-semibold">Rating</span>
               </label>
               <input
-                type="text"
+                type="number"
                 placeholder="rating"
                 name="rating"
+                max={5}
                 required
                 className="input input-bordered"
               />
