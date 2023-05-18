@@ -1,6 +1,6 @@
 import Banner from "./Banner";
 import GalarySection from "./GalarySection";
-import ShopByCategory from "./ShopByCategory";
+import ShopByCategory from "./ShopByCategory/ShopByCategory";
 
 
 const Home = () => {

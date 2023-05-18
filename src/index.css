@@ -2,22 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-.primary-btn{
-    @apply bg-[#4293E5] text-white font-bold px-6 py-2 rounded-md cursor-pointer
+.primary-btn {
+  @apply bg-[#4293E5] text-white font-bold px-6 py-2 rounded-md cursor-pointer;
 }
 
-.bg-primary{
-    @apply bg-[#4293E5]
+.bg-primary {
+  @apply bg-[#4293E5];
 }
 
-.text-primary{
-    @apply text-[#4293E5]
+.text-primary {
+  @apply text-[#4293E5];
 }
 
-.active{
-    @apply font-medium tracking-wide text-[#4293E5] transition-colors duration-200
-  }
-  
-  .default{
-    @apply font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-[#4293E5]
-  }
+.active {
+  @apply font-medium tracking-wide text-[#4293E5] transition-colors duration-200;
+}
+
+.default {
+  @apply font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-[#4293E5];
+}
+.react-tabs__tab {
+  background-color: antiquewhite !important;
+  border: none !important;
+}
+.react-tabs__tab--selected {
+  background-color: #4293e5 !important ;
+  border: none !important;
+}
+.react-tabs__tab-list{
+    border: none  !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+

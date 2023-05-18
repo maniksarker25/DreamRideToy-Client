@@ -27,7 +27,7 @@ const GalarySection = () => {
           <img className="w-96 h-96 rounded-md p-3 lg:p-0" src={galary5} alt="" />
         </div>
         <div>
-          <img className="w-96 h-96" src={galary6} alt="" />
+          <img className="w-96 h-96 rounded-md p-3 lg:p-0" src={galary6} alt="" />
         </div>
       </div>
     </div>
