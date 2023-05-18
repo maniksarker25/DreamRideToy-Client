@@ -96,7 +96,7 @@ const Navbar = () => {
             title={user?.displayName}
             className="w-8 h-8 rounded-full mr-4 cursor-pointer"
             src={user?.photoURL}
-          ></img>:<img className="w-12 rounded-full" src="https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg?w=2000"></img>}
+          ></img>:<img title={user?.displayName} className="w-12 cursor-pointer rounded-full" src="https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg?w=2000"></img>}
             <button onClick={handleLogOut} className="primary-btn">LogOut</button>
           </>:<Link to="/login">
           <button  className="primary-btn">Login</button>
