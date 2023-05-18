@@ -1,24 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/dreamLogo.png";
 
 const Navbar = () => {
   const navItems = (
     <>
-      <Link to='/'>
+      <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'default')}>
         <li>Home</li>
-      </Link>
-      <Link to='/allToys'>
+      </NavLink>
+      <NavLink to="/allToys" className={({ isActive }) => (isActive ? 'active' : 'default')}>
         <li>All Toys</li>
-      </Link>
-      <Link>
+      </NavLink>
+      <NavLink to="blog" className={({ isActive }) => (isActive ? 'active' : 'default')}>
         <li>Blog</li>
-      </Link>
-      <Link>
+      </NavLink>
+      <NavLink to="myToy" className={({ isActive }) => (isActive ? 'active' : 'default')}>
+        <li>My Toy</li>
+      </NavLink>
+      <NavLink to="addToy" className={({ isActive }) => (isActive ? 'active' : 'default')}>
         <li>Add Toy</li>
-      </Link>
-      <Link>
-        <li>My Toys</li>
-      </Link>
+      </NavLink>
     </>
   );
   return (
@@ -43,12 +43,12 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-compact space-y-2 dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             {navItems}
           </ul>
         </div>
-        <Link to='/'>
+        <Link to="/">
           <div className="flex items-center ">
             <img className=" h-10 w-10 lg:w-20 lg:h-20" src={logo} alt="" />
             <h3 className="lg:text-2xl  font-semibold">DreamRideToy</h3>
@@ -59,7 +59,9 @@ const Navbar = () => {
         <ul className="menu space-x-8 menu-horizontal px-1">{navItems}</ul>
       </div>
       <div className="navbar-end">
-        <Link><button className="primary-btn">Login</button></Link>
+        <Link to="/login">
+          <button className="primary-btn">Login</button>
+        </Link>
       </div>
     </div>
   );
