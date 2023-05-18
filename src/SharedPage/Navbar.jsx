@@ -50,8 +50,8 @@ const Navbar = () => {
         </div>
         <Link to='/'>
           <div className="flex items-center ">
-            <img className="w-20 h-20" src={logo} alt="" />
-            <h3 className="text-2xl font-semibold">DreamRide</h3>
+            <img className=" h-10 w-10 lg:w-20 lg:h-20" src={logo} alt="" />
+            <h3 className="lg:text-2xl  font-semibold">DreamRideToy</h3>
           </div>
         </Link>
       </div>
@@ -59,7 +59,7 @@ const Navbar = () => {
         <ul className="menu space-x-8 menu-horizontal px-1">{navItems}</ul>
       </div>
       <div className="navbar-end">
-        <Link><button className="bg-orange-500 text-white font-bold px-6 py-2 rounded-md">Login</button></Link>
+        <Link><button className="primary-btn">Login</button></Link>
       </div>
     </div>
   );
