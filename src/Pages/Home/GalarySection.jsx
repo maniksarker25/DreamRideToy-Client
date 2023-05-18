@@ -12,19 +12,19 @@ const GalarySection = () => {
         <p className="text-center my-8">Welcome to our mesmerizing Car Toy Gallery, where automotive wonders come to life!  Immerse yourself in a visual feast <br /> of miniature masterpieces, showcasing an exquisite assortment of car toys from around the world.</p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <div>
-          <img className="w-96 h-96" src={galary1} alt="" />
+          <img className="w-96 h-96 rounded-md p-3 lg:p-0" src={galary1} alt="" />
         </div>
         <div>
-          <img className="w-96 h-96" src={galary2} alt="" />
+          <img className="w-96 h-96 rounded-md p-3 lg:p-0" src={galary2} alt="" />
         </div>
         <div>
-          <img className="w-96 h-96" src={galary3} alt="" />
+          <img className="w-96 h-96 rounded-md p-3 lg:p-0" src={galary3} alt="" />
         </div>
         <div>
-          <img className="w-96 h-96" src={galary4} alt="" />
+          <img className="w-96 h-96 rounded-md p-3 lg:p-0" src={galary4} alt="" />
         </div>
         <div>
-          <img className="w-96 h-96" src={galary5} alt="" />
+          <img className="w-96 h-96 rounded-md p-3 lg:p-0" src={galary5} alt="" />
         </div>
         <div>
           <img className="w-96 h-96" src={galary6} alt="" />

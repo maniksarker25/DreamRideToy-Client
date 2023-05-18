@@ -13,7 +13,7 @@ const Banner = () => {
         >
           <img src={banner1} className="w-full rounded-md" />
           <div className="absolute rounded-md flex items-center lg:ps-12 ps-2 h-full   left-0 top-0 right- bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
-            <div className="lg:ps-8 ps-2 w-full lg:w-1/2">
+            <div className="lg:ps-8 ps-2 text-center w-full mx-auto lg:w-1/2">
               <h2 className="lg:text-7xl text-3xl font-bold text-white">
                 Find Your Dream Car Toys Form Here
               </h2>
@@ -37,7 +37,7 @@ const Banner = () => {
         >
           <img src={banner2} className="w-full rounded-md" />
           <div className="absolute rounded-md flex items-center lg:ps-12 ps-2 h-full   left-0 top-0 right- bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
-            <div className="lg:ps-8 ps-2 w-full lg:w-1/2">
+            <div className="lg:ps-8 ps-2 text-center mx-auto w-full lg:w-1/2">
               <h2 className="lg:text-7xl text-3xl font-bold text-white">
                 Find Your Dream Car Toys Form Here
               </h2>
@@ -61,7 +61,7 @@ const Banner = () => {
         >
           <img src={banner3} className="w-full rounded-md" />
           <div className="absolute rounded-md flex items-center lg:ps-12 ps-2 h-full   left-0 top-0 right- bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
-            <div className="lg:ps-8 ps-2 w-full lg:w-1/2">
+            <div className="lg:ps-8 ps-2 text-center mx-auto w-full lg:w-1/2">
               <h2 className="lg:text-7xl text-3xl font-bold text-white">
                 Find Your Dream Car Toys Form Here
               </h2>
@@ -85,7 +85,7 @@ const Banner = () => {
         >
           <img src={banner4} className="w-full rounded-md" />
           <div className="absolute rounded-md flex items-center lg:ps-12 ps-2 h-full   left-0 top-0 right- bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
-            <div className="lg:ps-8 ps-2 w-full lg:w-1/2">
+            <div className="lg:ps-8 ps-2 text-center mx-auto w-full lg:w-1/2">
               <h2 className="lg:text-7xl text-3xl font-bold text-white">
                 Find Your Dream Car Toys Form Here
               </h2>

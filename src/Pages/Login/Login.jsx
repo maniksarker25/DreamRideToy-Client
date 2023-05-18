@@ -1,11 +1,11 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import loginImg from "../../assets/login/login.svg";
+import loginImg from '../../assets/login/login.jpg'
 import { FaFacebook, FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { authContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
-  const { signIn, googleSignIn } = useContext(authContext);
+  const { signIn, googleSignIn,setLoading } = useContext(authContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const location = useLocation();
@@ -21,13 +21,14 @@ const Login = () => {
     setSuccess('');
     signIn(email, password)
       .then((result) => {
-        // const loggedUser = result.user;
+        const loggedUser = result.user;
         setSuccess("User Logged in Successfully");
         navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
         setError(errorMessage);
+        setLoading(false)
       });
   };
   // google sign in
@@ -40,18 +41,19 @@ const Login = () => {
       .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage);
+        setLoading(false)
       });
   };
 
   return (
     <div className="hero mt-4 lg:mt-16">
       <div className="hero-content flex-col lg:flex-row gap-24">
-        <div className="text-center lg:w-1/2">
+        <div className="text-center shadow-2xl lg:w-1/2">
           <img src={loginImg} alt="" />
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl lg:w-1/2 bg-base-100">
           <div className="card-body">
-            <h1 className="text-3xl text-center font-bold">Login</h1>
+            <h1 className="text-3xl text-center text-primary font-bold">Login</h1>
             <form onSubmit={handleLogin}>
               <div className="form-control">
                 <label className="label">

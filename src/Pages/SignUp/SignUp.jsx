@@ -1,11 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
-import signUpImg from "../../assets/login/login.svg";
+import signUpImg from '../../assets/login/login.jpg'
 import { FaFacebook, FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { authContext } from "../../Provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
-  const { createUser, logOut, googleSignIn } = useContext(authContext);
+  const { createUser, logOut, googleSignIn,setLoading } = useContext(authContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
@@ -17,46 +18,40 @@ const SignUp = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    setError('');
-    setSuccess('');
+    setError("");
+    setSuccess("");
     if (password.length < 6) {
       setError("Password must have 6 character");
       return;
     }
     createUser(email, password)
       .then((result) => {
-        const createUser = result.user;
-        console.log(createUser);
+        const createdUser = result.user;
+        // update profile
+        updateProfile(createdUser, {
+          displayName: name,
+          photoURL: photoUrl,
+        });
+        setSuccess("User Create Successfully");
         logOut();
         navigate("/login");
         form.reset();
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage);
-      });
-  };
-  // google sign up
-  const handleGoogleSignIn = () => {
-    googleSignIn()
-      .then((result) => {
-        const loggedUser = result.user;
-        setSuccess('User Create Successfully')
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        setError(errorMessage)
+        setError(errorMessage);
+        setLoading(false)
       });
   };
   return (
     <div className="hero mt-4 lg:mt-16">
       <div className="hero-content flex-col lg:flex-row gap-24">
         <div className="text-center lg:w-1/2">
-          <img src={signUpImg} alt="" />
+          <img className="shadow-2xl" src={signUpImg} alt="" />
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl lg:w-1/2 bg-base-100">
           <div className="card-body">
-            <h1 className="text-3xl text-center font-bold">Sign Up</h1>
+            <h1 className="text-3xl text-center text-primary font-bold">Sign Up</h1>
             <form onSubmit={handleSignUp}>
               <div className="form-control">
                 <label className="label">
@@ -113,26 +108,14 @@ const SignUp = () => {
               </div>
               {error && <p className="text-red-600">{error}</p>}
               {success && <p className="text-green-600">{success}</p>}
-              <div className="form-control mt-6">
+              <div className="form-control mt-3">
                 <input className="primary-btn" type="submit" value="SignUp" />
               </div>
             </form>
           </div>
-          <p className="text-center -mt-4">Or Sign In With</p>
-          <div className="text-center my-4">
-            <button className="mr-2 bg-stone-200 p-2 rounded-full text-blue-500 text-xl">
-              <FaFacebook />
-            </button>
-            <button
-              onClick={handleGoogleSignIn}
-              className="mr-2 bg-stone-200 p-2 text-[#ea4335] rounded-full text-xl "
-            >
-              <FaGoogle />
-            </button>
-          </div>
           <p className="text-center mb-4">
             Have an account?
-            <Link to="/login" className="text-orange-600 font-bold">
+            <Link to="/login" className="text-primary font-bold">
               Login
             </Link>
           </p>

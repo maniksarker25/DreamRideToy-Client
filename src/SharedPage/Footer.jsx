@@ -41,7 +41,7 @@ const Footer = () => {
             placeholder="Your Email Address"
             required
           />
-          <button className="bg-orange-600 py-2 mt-2 rounded-lg px-3">
+          <button className=" primary-btn mt-2 rounded-lg ">
             Subscribe Now
           </button>
         <div className="flex gap-4 mt-4">

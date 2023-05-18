@@ -37,18 +37,18 @@ const Navbar = () => {
       >
         <li>Blog</li>
       </NavLink>
-      <NavLink
+      {user && <NavLink
         to="myToy"
         className={({ isActive }) => (isActive ? "active" : "default")}
       >
         <li>My Toy</li>
-      </NavLink>
-      <NavLink
+      </NavLink>}
+      {user && <NavLink
         to="addToy"
         className={({ isActive }) => (isActive ? "active" : "default")}
       >
         <li>Add Toy</li>
-      </NavLink>
+      </NavLink>}
     </>
   );
   return (
@@ -80,7 +80,7 @@ const Navbar = () => {
         </div>
         <Link to="/">
           <div className="flex items-center ">
-            <img className=" h-10 w-10 lg:w-20 lg:h-20" src={logo} alt="" />
+            <img className=" h-10 w-10 lg:w-20 mt-2 lg:h-20" src={logo} alt="" />
             <h3 className="lg:text-2xl  font-semibold">DreamRideToy</h3>
           </div>
         </Link>
@@ -92,11 +92,11 @@ const Navbar = () => {
         {loading ? (
           'Loading'
         ) :user? <>
-          <img
+          {user.photoURL?<img
             title={user?.displayName}
             className="w-8 h-8 rounded-full mr-4 cursor-pointer"
             src={user?.photoURL}
-          ></img>
+          ></img>:<img className="w-12 rounded-full" src="https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg?w=2000"></img>}
             <button onClick={handleLogOut} className="primary-btn">LogOut</button>
           </>:<Link to="/login">
           <button  className="primary-btn">Login</button>
