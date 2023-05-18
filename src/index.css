@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .primary-btn{
-    @apply bg-orange-500 text-white font-bold px-6 py-2 rounded-md
+    @apply bg-orange-600 text-white font-bold px-6 py-2 rounded-md
 }
 
 .bg-primary{
