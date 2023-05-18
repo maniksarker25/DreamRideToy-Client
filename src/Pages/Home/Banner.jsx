@@ -9,7 +9,7 @@ const Banner = () => {
       <div className="carousel w-full">
         <div
           id="item1"
-          className="carousel-item h-72 lg:h-[600px]  relative w-full"
+          className="carousel-item h-96 lg:h-[600px]  relative w-full"
         >
           <img src={banner1} className="w-full rounded-md" />
           <div className="absolute rounded-md flex items-center lg:ps-12 ps-2 h-full   left-0 top-0 right- bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
@@ -33,7 +33,7 @@ const Banner = () => {
         </div>
         <div
           id="item2"
-          className="carousel-item h-72 lg:h-[600px] relative w-full"
+          className="carousel-item h-96 lg:h-[600px] relative w-full"
         >
           <img src={banner2} className="w-full rounded-md" />
           <div className="absolute rounded-md flex items-center lg:ps-12 ps-2 h-full   left-0 top-0 right- bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
@@ -57,7 +57,7 @@ const Banner = () => {
         </div>
         <div
           id="item3"
-          className="carousel-item h-72 lg:h-[600px] relative w-full"
+          className="carousel-item h-96 lg:h-[600px] relative w-full"
         >
           <img src={banner3} className="w-full rounded-md" />
           <div className="absolute rounded-md flex items-center lg:ps-12 ps-2 h-full   left-0 top-0 right- bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
@@ -81,7 +81,7 @@ const Banner = () => {
         </div>
         <div
           id="item4"
-          className="carousel-item h-72 lg:h-[600px] relative w-full"
+          className="carousel-item h-96 lg:h-[600px] relative w-full"
         >
           <img src={banner4} className="w-full rounded-md" />
           <div className="absolute rounded-md flex items-center lg:ps-12 ps-2 h-full   left-0 top-0 right- bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">

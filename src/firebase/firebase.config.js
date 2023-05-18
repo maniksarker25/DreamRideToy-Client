@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD4Ah4a7_zrH44uPRwR0Vo1EPuE_N1x3EY",
-  authDomain: "dream-ride-toy.firebaseapp.com",
-  projectId: "dream-ride-toy",
-  storageBucket: "dream-ride-toy.appspot.com",
-  messagingSenderId: "273895088507",
-  appId: "1:273895088507:web:5fa5c6b657e8be25c1ddde"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID
 };
 
 // Initialize Firebase

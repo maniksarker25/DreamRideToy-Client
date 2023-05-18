@@ -1,8 +1,48 @@
-import { Link} from "react-router-dom";
-import loginImg from '../../assets/login/login.svg'
-import { FaFacebook,FaGoogle } from 'react-icons/fa';
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import loginImg from "../../assets/login/login.svg";
+import { FaFacebook, FaGoogle } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { authContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
+  const { signIn, googleSignIn } = useContext(authContext);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    setError('');
+    setSuccess('');
+    signIn(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        setSuccess("User Logged in Successfully");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage);
+      });
+  };
+  // google sign in
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
+  };
+
   return (
     <div className="hero mt-4 lg:mt-16">
       <div className="hero-content flex-col lg:flex-row gap-24">
@@ -12,7 +52,7 @@ const Login = () => {
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl lg:w-1/2 bg-base-100">
           <div className="card-body">
             <h1 className="text-3xl text-center font-bold">Login</h1>
-            <form  action="">
+            <form onSubmit={handleLogin}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -42,21 +82,31 @@ const Login = () => {
                   </a>
                 </label>
               </div>
+              {error && <p className="text-red-600">{error}</p>}
+              {success && <p className="text-green-600">{success}</p>}
               <div className="form-control mt-6">
-                <input
-                  className='primary-btn'
-                  type="submit"
-                  value="Login"
-                />
+                <input className="primary-btn" type="submit" value="Login" />
               </div>
             </form>
           </div>
           <p className="text-center -mt-4">Or Sign In With</p>
           <div className="text-center my-4">
-            <button className="mr-2 bg-stone-200 p-2 rounded-full text-blue-500 text-xl"><FaFacebook/></button>
-            <button className="mr-2 bg-stone-200 text-[#ea4335] p-2 rounded-full text-xl "><FaGoogle/></button>
+            <button className="mr-2 bg-stone-200 p-2 rounded-full text-blue-500 text-xl">
+              <FaFacebook />
+            </button>
+            <button
+              onClick={handleGoogleSignIn}
+              className="mr-2 bg-stone-200 text-[#ea4335] p-2 rounded-full text-xl "
+            >
+              <FaGoogle />
+            </button>
           </div>
-            <p className="text-center mb-4" >New to DreamRideToy?<Link to='/signUp' className="text-primary font-bold">SignUp</Link></p>
+          <p className="text-center mb-4">
+            New to DreamRideToy?
+            <Link to="/signUp" className="text-primary font-bold">
+              SignUp
+            </Link>
+          </p>
         </div>
       </div>
     </div>

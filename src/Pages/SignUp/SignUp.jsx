@@ -1,10 +1,53 @@
-
-import { Link } from "react-router-dom";
-import signUpImg from '../../assets/login/login.svg'
+import { Link, useNavigate } from "react-router-dom";
+import signUpImg from "../../assets/login/login.svg";
 import { FaFacebook, FaGoogle } from "react-icons/fa";
-
+import { useContext, useState } from "react";
+import { authContext } from "../../Provider/AuthProvider";
 
 const SignUp = () => {
+  const { createUser, logOut, googleSignIn } = useContext(authContext);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
+  const handleSignUp = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const photoUrl = form.photoUrl.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    setError('');
+    setSuccess('');
+    if (password.length < 6) {
+      setError("Password must have 6 character");
+      return;
+    }
+    createUser(email, password)
+      .then((result) => {
+        const createUser = result.user;
+        console.log(createUser);
+        logOut();
+        navigate("/login");
+        form.reset();
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
+  };
+  // google sign up
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const loggedUser = result.user;
+        setSuccess('User Create Successfully')
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage)
+      });
+  };
   return (
     <div className="hero mt-4 lg:mt-16">
       <div className="hero-content flex-col lg:flex-row gap-24">
@@ -14,7 +57,7 @@ const SignUp = () => {
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl lg:w-1/2 bg-base-100">
           <div className="card-body">
             <h1 className="text-3xl text-center font-bold">Sign Up</h1>
-            <form action="">
+            <form onSubmit={handleSignUp}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -68,12 +111,10 @@ const SignUp = () => {
                   </a>
                 </label>
               </div>
+              {error && <p className="text-red-600">{error}</p>}
+              {success && <p className="text-green-600">{success}</p>}
               <div className="form-control mt-6">
-                <input
-                  className='primary-btn'
-                  type="submit"
-                  value="SignUp"
-                />
+                <input className="primary-btn" type="submit" value="SignUp" />
               </div>
             </form>
           </div>
@@ -83,6 +124,7 @@ const SignUp = () => {
               <FaFacebook />
             </button>
             <button
+              onClick={handleGoogleSignIn}
               className="mr-2 bg-stone-200 p-2 text-[#ea4335] rounded-full text-xl "
             >
               <FaGoogle />

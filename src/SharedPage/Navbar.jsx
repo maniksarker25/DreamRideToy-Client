@@ -1,22 +1,52 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/dreamLogo.png";
+import { useContext } from "react";
+import { authContext } from "../Provider/AuthProvider";
+import LoadingSpiner from "../Pages/LoadingSpiner/LoadingSpiner";
 
 const Navbar = () => {
+  const { user, loading,logOut } = useContext(authContext);
+  // console.log(user, loading);
+
+  const handleLogOut = ()=>{
+    logOut()
+    .then(()=>{})
+    .catch(()=>{})
+  }
+
+  if(loading){
+    return <LoadingSpiner/>
+  }
   const navItems = (
     <>
-      <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'default')}>
+      <NavLink
+        to="/"
+        className={({ isActive }) => (isActive ? "active" : "default")}
+      >
         <li>Home</li>
       </NavLink>
-      <NavLink to="/allToys" className={({ isActive }) => (isActive ? 'active' : 'default')}>
+      <NavLink
+        to="/allToys"
+        className={({ isActive }) => (isActive ? "active" : "default")}
+      >
         <li>All Toys</li>
       </NavLink>
-      <NavLink to="blog" className={({ isActive }) => (isActive ? 'active' : 'default')}>
+      <NavLink
+        to="blog"
+        className={({ isActive }) => (isActive ? "active" : "default")}
+      >
         <li>Blog</li>
       </NavLink>
-      <NavLink to="myToy" className={({ isActive }) => (isActive ? 'active' : 'default')}>
+      <NavLink
+        to="myToy"
+        className={({ isActive }) => (isActive ? "active" : "default")}
+      >
         <li>My Toy</li>
       </NavLink>
-      <NavLink to="addToy" className={({ isActive }) => (isActive ? 'active' : 'default')}>
+      <NavLink
+        to="addToy"
+        className={({ isActive }) => (isActive ? "active" : "default")}
+      >
         <li>Add Toy</li>
       </NavLink>
     </>
@@ -59,9 +89,19 @@ const Navbar = () => {
         <ul className="menu space-x-8 menu-horizontal px-1">{navItems}</ul>
       </div>
       <div className="navbar-end">
-        <Link to="/login">
-          <button className="primary-btn">Login</button>
+        {loading ? (
+          'Loading'
+        ) :user? <>
+          <img
+            title={user?.displayName}
+            className="w-8 h-8 rounded-full mr-4 cursor-pointer"
+            src={user?.photoURL}
+          ></img>
+            <button onClick={handleLogOut} className="primary-btn">LogOut</button>
+          </>:<Link to="/login">
+          <button  className="primary-btn">Login</button>
         </Link>
+        }
       </div>
     </div>
   );
