@@ -34,7 +34,7 @@ const MyToyRow = ({ myToy, i,setControl,control }) => {
               if (data.deletedCount > 0) {
                 swalWithBootstrapButtons.fire(
                   "Deleted!",
-                  "Your file has been deleted.",
+                  "Your Toy has been deleted.",
                   "success"
                 );
                 setControl(!control)
