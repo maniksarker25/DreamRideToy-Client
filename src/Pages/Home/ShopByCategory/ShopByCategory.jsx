@@ -2,14 +2,23 @@ import { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import SingleToy from "./SingleToy";
+import LoadingSpiner from "../../LoadingSpiner/LoadingSpiner";
 
 const ShopByCategory = () => {
   const [toys, setToys] = useState([]);
+  const [loading,setLoading] = useState(true);
   useEffect(() => {
+    setLoading(true)
     fetch("http://localhost:5000/allToys")
       .then((res) => res.json())
-      .then((data) => setToys(data));
+      .then((data) => {
+        setToys(data);
+        setLoading(false)
+      });
   }, []);
+  if(loading){
+    return <LoadingSpiner/>
+  }
   return (
     <div className="mt-20">
       <h3 className="text-center text-4xl font-semibold">Shop By Category</h3>

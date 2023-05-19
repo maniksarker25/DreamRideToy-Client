@@ -8,7 +8,7 @@ const SingleToy = ({ singleToy }) => {
       </figure>
       <div className="card-body">
         <h2 className="card-title">{singleToy?.toyName}</h2>
-        <p>Price: {singleToy?.price}</p>
+        <p>Price: ${singleToy?.price}</p>
         <div className="">
           <div className="flex justify-between">
             <div className=" flex  items-center gap-1">
