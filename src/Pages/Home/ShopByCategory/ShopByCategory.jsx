@@ -27,7 +27,7 @@ const ShopByCategory = () => {
         discover an exciting selection of toy <br /> cars tailored to various
         themes and styles. We have curated distinct categories to cater to
         different interests <br /> and preferences, ensuring there something for
-        every young car enthusiast.
+        every young car enthusiast..
       </p>
       <div className="mt-8">
         <Tabs>
