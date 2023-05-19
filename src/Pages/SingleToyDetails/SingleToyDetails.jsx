@@ -1,10 +1,27 @@
 import { Rating } from "@smastrom/react-rating";
-import { useLoaderData} from "react-router-dom";
+import { useEffect, useState } from "react";
+import {  useParams} from "react-router-dom";
+import LoadingSpiner from "../LoadingSpiner/LoadingSpiner";
 
 const SingleToyDetails = () => {
-  const toy = useLoaderData();
+  const id = useParams().id;
+  const [loading,setLoading] = useState(true);
+  const [toy,setToy] = useState([]);
+  useEffect(()=>{
+    setLoading(true)
+    fetch(`http://localhost:5000/allToys/${id}`)
+    .then(res=>res.json())
+    .then(data=>{
+      setToy(data)
+      setLoading(false)
+    })
+  },[id])
+  
   const { toyName, sellerName, price, pictureUrl, sellerEmail, availableQuantity, rating,description } =
     toy;
+    if(loading){
+      return <LoadingSpiner></LoadingSpiner>
+    }
   return (
     <div className="card lg:card-side bg-base-100 shadow-xl mt-12">
       <div>
@@ -39,6 +56,7 @@ const SingleToyDetails = () => {
         <p>{description}</p>
       </div>
     </div>
+
   );
 };
 

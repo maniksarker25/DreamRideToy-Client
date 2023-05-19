@@ -1,6 +1,7 @@
+
 import { FaTrash, FaEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
-const MyToyRow = ({ myToy, i,setControl,control }) => {
+const MyToyRow = ({ myToy, i, setControl, control, openModal }) => {
   const { pictureUrl, toyName, price, availableQuantity, sub_category, _id } =
     myToy;
 
@@ -8,7 +9,8 @@ const MyToyRow = ({ myToy, i,setControl,control }) => {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: " primary-btn",
-        cancelButton: "bg-red-600 px-6 py-2 text-white font-bold rounded-md mr-2",
+        cancelButton:
+          "bg-red-600 px-6 py-2 text-white font-bold rounded-md mr-2",
       },
       buttonsStyling: false,
     });
@@ -37,7 +39,7 @@ const MyToyRow = ({ myToy, i,setControl,control }) => {
                   "Your Toy has been deleted.",
                   "success"
                 );
-                setControl(!control)
+                setControl(!control);
               }
             });
         } else if (
@@ -52,6 +54,7 @@ const MyToyRow = ({ myToy, i,setControl,control }) => {
         }
       });
   };
+
   return (
     <tr>
       <th>{i + 1}</th>
@@ -64,7 +67,10 @@ const MyToyRow = ({ myToy, i,setControl,control }) => {
       <td>{availableQuantity}</td>
       <td>
         <div className="flex gap-6">
-          <FaEdit className="text-blue-400 cursor-pointer" />
+          <FaEdit
+            onClick={() => openModal(myToy,_id)}
+            className="text-blue-400 cursor-pointer"
+          />
           <FaTrash
             onClick={() => handleDeleteToy(_id)}
             className="text-red-600 cursor-pointer"
