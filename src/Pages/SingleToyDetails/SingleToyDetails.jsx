@@ -1,5 +1,5 @@
 import { Rating } from "@smastrom/react-rating";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData} from "react-router-dom";
 
 const SingleToyDetails = () => {
   const toy = useLoaderData();

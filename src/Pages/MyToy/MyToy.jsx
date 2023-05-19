@@ -8,7 +8,8 @@ const MyToy = () => {
 
     const {user} = useContext(authContext);
     const [myToys,setMyToys] = useState([]);
-    const [loading,setLoading] = useState(true)
+    const [loading,setLoading] = useState(true);
+    const [control,setControl] = useState(false)
     const url = `http://localhost:5000/myToys?email=${user?.email}`
     useEffect(()=>{
         setLoading(true)
@@ -18,7 +19,7 @@ const MyToy = () => {
             setMyToys(data)
             setLoading(false)
         })
-    },[url])
+    },[url,control])
    if(loading){
     return <LoadingSpiner/>
    }
@@ -41,7 +42,7 @@ const MyToy = () => {
           </thead>
           <tbody>
             {
-                myToys.map((myToy,i)=><MyToyRow key={myToy._id} i={i} myToy={myToy}></MyToyRow>)
+                myToys.map((myToy,i)=><MyToyRow setControl={setControl} control={control} key={myToy._id} i={i} myToy={myToy}></MyToyRow>)
             }
            
           </tbody>

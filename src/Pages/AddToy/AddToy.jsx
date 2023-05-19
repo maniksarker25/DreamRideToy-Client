@@ -16,12 +16,12 @@ const AddToy = () => {
     const pictureUrl = form.pictureUrl.value;
     const sellerName = form.sellerName.value;
     const sellerEmail = form.email.value;
-    const category = form.category.value;
+    const sub_category = form.category.value;
     const price = form.price.value;
     const rating = form.rating.value;
     const availableQuantity = form.quantity.value;
     const description = form.description.value;
-    const toy = {toyName,pictureUrl,sellerName,sellerEmail,category,price,rating,availableQuantity,description};
+    const toy = {toyName,pictureUrl,sellerName,sellerEmail,sub_category,price,rating,availableQuantity,description};
     console.log(toy)
     fetch('http://localhost:5000/addToy',{
         method:'POST',

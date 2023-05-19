@@ -30,7 +30,7 @@ const AllToy = () => {
     <div>
         <form onSubmit={handleSearch} className="my-4">
         <input type="text" name="search" placeholder="Search Car By Name" className="input   input-info w-full max-w-xs rounded-e-[0]" />
-        <input className="bg-primary rounded-r-lg px-8 py-3 text-white font-semibold " type="submit" value="Search" />
+        <input className="bg-primary rounded-r-lg px-8 py-3 cursor-pointer  text-white font-semibold " type="submit" value="Search" />
         </form>
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">

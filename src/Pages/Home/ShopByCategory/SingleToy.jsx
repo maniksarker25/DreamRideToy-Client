@@ -1,6 +1,24 @@
 import { Rating } from "@smastrom/react-rating";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { authContext } from "../../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const SingleToy = ({ singleToy }) => {
+  const { user } = useContext(authContext);
+  const handleAlart = () => {
+    if (!user) {
+      Swal.fire({
+        title: "You Have To LogIn First",
+        showClass: {
+          popup: "animate__animated animate__fadeInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutUp",
+        },
+      });
+    }
+  };
   return (
     <div className="card w-full bg-base-100 shadow-xl">
       <figure>
@@ -12,11 +30,19 @@ const SingleToy = ({ singleToy }) => {
         <div className="">
           <div className="flex justify-between">
             <div className=" flex  items-center gap-1">
-              <Rating style={{ maxWidth: 100 }} value={singleToy?.rating} readOnly />
+              <Rating
+                style={{ maxWidth: 100 }}
+                value={singleToy?.rating}
+                readOnly
+              />
               <span>{singleToy.rating}</span>
             </div>
             <div className="flex items-center">
-             <button className="primary-btn">View Details</button>
+              <Link to={`/allToys/${singleToy?._id}`}>
+                <button onClick={handleAlart} className="primary-btn">
+                  View Details
+                </button>
+              </Link>
             </div>
           </div>
         </div>
