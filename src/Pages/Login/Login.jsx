@@ -24,6 +24,7 @@ const Login = () => {
         const loggedUser = result.user;
         setSuccess("User Logged in Successfully");
         navigate(from, { replace: true });
+        form.reset();
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -37,6 +38,7 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;

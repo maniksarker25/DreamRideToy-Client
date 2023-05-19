@@ -17,10 +17,21 @@ const AllToy = () => {
   if(loading){
     return <LoadingSpiner></LoadingSpiner>
   }
+  const handleSearch = event =>{
+    event.preventDefault();
+    const form = event.target;
+    const searchName = form.search.value;
+    fetch(`http://localhost:5000/toy/${searchName}`)
+    .then(res=>res.json())
+    .then(data=> setToys(data))
+  }
 
   return (
     <div>
-      <h1>all toys herer</h1>
+        <form onSubmit={handleSearch} className="my-4">
+        <input type="text" name="search" placeholder="Search Car By Name" className="input   input-info w-full max-w-xs rounded-e-[0]" />
+        <input className="bg-primary rounded-r-lg px-8 py-3 text-white font-semibold " type="submit" value="Search" />
+        </form>
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">
           {/* head */}
