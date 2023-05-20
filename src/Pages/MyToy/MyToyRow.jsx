@@ -48,7 +48,7 @@ const MyToyRow = ({ myToy, i, setControl, control, openModal }) => {
         ) {
           swalWithBootstrapButtons.fire(
             "Cancelled",
-            "Your imaginary file is safe :)",
+            "Your Toy is safe :)",
             "error"
           );
         }

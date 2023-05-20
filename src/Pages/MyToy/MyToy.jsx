@@ -12,8 +12,8 @@ const MyToy = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [myToy, setToy] = useState({});
   const [id, setId] = useState(null);
-  const [sortBy, setSortBy] = useState('');
-  console.log(sortBy)
+  // const [sortBy, setSortBy] = useState("");
+  // console.log(sortBy);
   const url = `http://localhost:5000/myToys?email=${user?.email}`;
   useEffect(() => {
     setLoading(true);
@@ -24,15 +24,6 @@ const MyToy = () => {
         setLoading(false);
       });
   }, [url, control]);
-
-
-  // useEffect(()=>{
-  //   // const sortQueryParam = sortBy ? `&sort=${sortBy}` : '';
-  //   fetch(`http://localhost:5000/myToys?email=${user?.email}&sort=${sortBy}`)
-  //   .then(res=>res.json())
-  //   .then(data=>setMyToys(data))
-  // },[sortBy,user,control])
-  
 
 
   if (loading) {
@@ -76,19 +67,18 @@ const MyToy = () => {
       });
   };
 
-
-
-
-  const handleSortBy = (sortOrder) => {
-    setSortBy(sortOrder);
-    setLoading(true)
-    fetch('http://localhost:5000/myToyShort?sort=' + sortOrder)
-    .then(res => res.json())
-    .then(data=> {
-      const mySortToy = data.filter(d=> d.sellerEmail === user?.email);
-      setMyToys(mySortToy)
-      setLoading(false)
-    })
+  const handleSortBy = (e) => {
+    const sortOrder = e.target.value;
+    // setSortBy(sortOrder);
+    setLoading(true);
+    fetch("http://localhost:5000/myToyShort?sort=" + sortOrder)
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data)
+        const mySortToy = data.filter((d) => d.sellerEmail === user?.email);
+        setMyToys(mySortToy);
+        setLoading(false);
+      });
   };
   return (
     <div>
@@ -98,7 +88,7 @@ const MyToy = () => {
         </h2>
       ) : (
         <div>
-          <div className=" d-flex justify-content-center my-3 border-2 align-items-center">
+          {/* <div className=" d-flex justify-content-center my-3 border-2 align-items-center">
             <button
               onClick={() => handleSortBy("ascending")}
               className={`px-2 btn btn-outline py-2${
@@ -115,6 +105,15 @@ const MyToy = () => {
             >
               Short Descending By Price
             </button>
+          </div> */}
+          <div className="flex justify-end my-3">
+          <select onChange={handleSortBy} className="select w-full max-w-xs">
+            <option disabled selected>
+              Sort Your Toy By Price
+            </option>
+            <option value='ascending'>Ascending</option>
+            <option value='descending'>Descending</option>
+          </select>
           </div>
           <div className="overflow-x-auto">
             <table className="table table-zebra w-full">
@@ -164,7 +163,10 @@ const MyToy = () => {
                         </div>
                         <div className="form-control">
                           <label className="label">
-                            <span className="label-text"> Available Quantity</span>
+                            <span className="label-text">
+                              {" "}
+                              Available Quantity
+                            </span>
                           </label>
                           <input
                             type="text"
