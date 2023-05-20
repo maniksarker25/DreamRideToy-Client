@@ -10,8 +10,10 @@ const MyToy = () => {
   const [loading, setLoading] = useState(true);
   const [control, setControl] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [myToy,setToy] = useState({});
-  const [id,setId] = useState(null);
+  const [myToy, setToy] = useState({});
+  const [id, setId] = useState(null);
+  const [sortBy, setSortBy] = useState('');
+  console.log(sortBy)
   const url = `http://localhost:5000/myToys?email=${user?.email}`;
   useEffect(() => {
     setLoading(true);
@@ -22,13 +24,24 @@ const MyToy = () => {
         setLoading(false);
       });
   }, [url, control]);
+
+
+  // useEffect(()=>{
+  //   // const sortQueryParam = sortBy ? `&sort=${sortBy}` : '';
+  //   fetch(`http://localhost:5000/myToys?email=${user?.email}&sort=${sortBy}`)
+  //   .then(res=>res.json())
+  //   .then(data=>setMyToys(data))
+  // },[sortBy,user,control])
+  
+
+
   if (loading) {
     return <LoadingSpiner />;
   }
 
-  const openModal = (myToy,id) => {
-    setToy(myToy)
-    setId(id)
+  const openModal = (myToy, id) => {
+    setToy(myToy);
+    setId(id);
     setIsOpen(true);
   };
 
@@ -36,33 +49,47 @@ const MyToy = () => {
     setIsOpen(false);
   };
 
-  const handleEdit = event=>{
+  const handleEdit = (event) => {
     event.preventDefault();
     const form = event.target;
     const price = form.price.value;
     const availableQuantity = form.quantity.value;
     const description = form.description.value;
-    const updatedToy = {price,availableQuantity,description}
+    const updatedToy = { price, availableQuantity, description };
     // console.log(updatedToy)
-    fetch(`http://localhost:5000/toy/${id}`,{
-      method:'PATCH',
-      headers:{'content-type':'application/json'},
-      body:JSON.stringify(updatedToy)
+    fetch(`http://localhost:5000/toy/${id}`, {
+      method: "PATCH",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(updatedToy),
     })
-    .then(res=>res.json())
-    .then(data=>{
-      if(data.modifiedCount >0){
-        Swal.fire({
-          title: 'Success!',
-          text: 'Toy updated Successfully',
-          icon: 'success',
-          confirmButtonText: 'Okey'
-        })
-        setControl(!control)
-      }
-    })
-  }
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            title: "Success!",
+            text: "Toy updated Successfully",
+            icon: "success",
+            confirmButtonText: "Okey",
+          });
+          setControl(!control);
+        }
+      });
+  };
 
+
+
+
+  const handleSortBy = (sortOrder) => {
+    setSortBy(sortOrder);
+    setLoading(true)
+    fetch('http://localhost:5000/myToyShort?sort=' + sortOrder)
+    .then(res => res.json())
+    .then(data=> {
+      const mySortToy = data.filter(d=> d.sellerEmail === user?.email);
+      setMyToys(mySortToy)
+      setLoading(false)
+    })
+  };
   return (
     <div>
       {myToys.length === 0 ? (
@@ -70,89 +97,109 @@ const MyToy = () => {
           You Have Not Added Any Toys
         </h2>
       ) : (
-        <div className="overflow-x-auto">
-          <table className="table table-zebra w-full">
-            {/* head */}
-            <thead>
-              <tr>
-                <th>Sl</th>
-                <th>Toy Picture</th>
-                <th>Toy Name</th>
-                <th>SubCategory</th>
-                <th>Price</th>
-                <th>Available Quantity</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {myToys.map((myToy, i) => (
-                <MyToyRow
-                  openModal={openModal}
-                  setControl={setControl}
-                  control={control}
-                  key={myToy._id}
-                  i={i}
-                  myToy={myToy}
-                ></MyToyRow>
-              ))}
-            </tbody>
-          </table>
-          {isOpen && (
-            <div className="fixed inset-0  flex items-center justify-center z-10">
-              <div className="absolute  px-16 bg-white w-2/5 p-6 rounded-lg">
-                <h3 className="text-2xl font-semibold">{myToy.toyName}</h3>
-                <form onSubmit={handleEdit}>
-                  <div>
-                    <div className="flex justify-between">
-                      <div className="form-control">
-                        <label className="label">
-                          <span className="label-text">Price</span>
-                        </label>
-                        <input
-                          type="text"
-                          name="price"
-                          defaultValue={myToy.price}
-                          placeholder="Price"
-                          className="input input-bordered"
-                        />
+        <div>
+          <div className=" d-flex justify-content-center my-3 border-2 align-items-center">
+            <button
+              onClick={() => handleSortBy("ascending")}
+              className={`px-2 btn btn-outline py-2${
+                sortBy == "ascending" ? " bg-[#4293E5] text-white" : ""
+              }`}
+            >
+              Short Ascending By Price
+            </button>
+            <button
+              onClick={() => handleSortBy("descending")}
+              className={` px-2 btn btn-outline  py-2 ${
+                sortBy == "descending" ? " bg-[#4293E5] text-white" : ""
+              }`}
+            >
+              Short Descending By Price
+            </button>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="table table-zebra w-full">
+              {/* head */}
+              <thead>
+                <tr>
+                  <th>Sl</th>
+                  <th>Toy Picture</th>
+                  <th>Toy Name</th>
+                  <th>SubCategory</th>
+                  <th>Price</th>
+                  <th>Available Quantity</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {myToys.map((myToy, i) => (
+                  <MyToyRow
+                    openModal={openModal}
+                    setControl={setControl}
+                    control={control}
+                    key={myToy._id}
+                    i={i}
+                    myToy={myToy}
+                  ></MyToyRow>
+                ))}
+              </tbody>
+            </table>
+            {isOpen && (
+              <div className="fixed inset-0  flex items-center justify-center z-10">
+                <div className="absolute  px-16 bg-white w-2/5 p-6 rounded-lg">
+                  <h3 className="text-2xl font-semibold">{myToy.toyName}</h3>
+                  <form onSubmit={handleEdit}>
+                    <div>
+                      <div className="flex justify-between">
+                        <div className="form-control">
+                          <label className="label">
+                            <span className="label-text">Price</span>
+                          </label>
+                          <input
+                            type="text"
+                            name="price"
+                            defaultValue={myToy.price}
+                            placeholder="Price"
+                            className="input input-bordered"
+                          />
+                        </div>
+                        <div className="form-control">
+                          <label className="label">
+                            <span className="label-text"> Available Quantity</span>
+                          </label>
+                          <input
+                            type="text"
+                            name="quantity"
+                            defaultValue={myToy.availableQuantity}
+                            placeholder="Quantity"
+                            className="input input-bordered"
+                          />
+                        </div>
                       </div>
-                      <div className="form-control">
-                        <label className="label">
-                          <span className="label-text">Quantity</span>
-                        </label>
-                        <input
-                          type="text"
-                          name="quantity"
-                          defaultValue={myToy.availableQuantity}
-                          placeholder="Quantity"
-                          className="input input-bordered"
-                        />
-                      </div>
+                      <textarea
+                        placeholder="Description"
+                        name="description"
+                        defaultValue={myToy.description}
+                        className="textarea mt-4 textarea-bordered textarea-lg w-full max-w-[800px]"
+                      ></textarea>
                     </div>
-                    <textarea
-                      placeholder="Description"
-                      name="description"
-                      defaultValue={myToy.description}
-                      className="textarea mt-4 textarea-bordered textarea-lg w-full max-w-[800px]"
-                    ></textarea>
-                  </div>
-                  <div className="flex justify-between">
-                    <input
-                      className="primary-btn"
-                      type="submit"
-                      value="Update"
-                    />
-                    <button
-                      onClick={closeModal}
-                      className="bg-gray-500 rounded-md font-semibold hover:bg-gray-700 text-white py-2 px-4"
-                    >
-                      Close
-                    </button>
-                  </div>
-                </form>
+                    <div className="flex justify-between">
+                      <input
+                        className="primary-btn"
+                        type="submit"
+                        value="Update"
+                      />
+                      <button
+                        onClick={closeModal}
+                        className="bg-gray-500 rounded-md font-semibold hover:bg-gray-700 text-white py-2 px-4"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </form>
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       )}
     </div>

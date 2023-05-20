@@ -6,7 +6,6 @@ const ToyList = ({toy,i}) => {
     return (
              <tr>
               <th>{i + 1}</th>
-              <th><img className="w-12 h-12 rounded-lg" src={pictureUrl} alt="" /></th>
               <td>{toyName}</td>
               <td>{sellerName} </td>
               <td>{sub_category}</td>

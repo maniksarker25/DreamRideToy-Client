@@ -38,7 +38,6 @@ const AllToy = () => {
           <thead>
             <tr>
               <th>Sl</th>
-              <th>Toy Picture</th>
               <th>Toy Name</th>
               <th>Seller Name</th>
               <th>SubCategory</th>

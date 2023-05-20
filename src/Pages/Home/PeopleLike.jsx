@@ -6,7 +6,7 @@ import logo3 from "../../assets/peopleLike/engage.png";
 const PeopleLike = () => {
   return (
     <div>
-      <div className="bg-[#3DCB93]  h-[400px] lg:h-[500px]   mt-20 ">
+      <div className="bg-[#3DCB93]  h-[400px] lg:h-[500px]   mt-32 ">
         <div className="py-12">
           <p className="text-center  font-semibold text-white">
             The mater of that
@@ -23,7 +23,7 @@ const PeopleLike = () => {
       />
       {/* <img className="lg:h-[500px] mx-auto lg:-mt-[450px] h-72 rounded-lg w-4/6 " src={img2} alt="" /> */}
       <div className=" mt-16 grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3">
-        <div className="lg:flex items-center">
+        <div className="lg:flex items-center p-8 lg:p-0 space-y-4">
           <img className="w-28 h-28 mr-3" src={logo1} alt="" />
           <div>
             <h4 className="text-xl font-semibold mb-2">
@@ -34,7 +34,7 @@ const PeopleLike = () => {
             </p>
           </div>
         </div>
-        <div className="lg:flex items-center">
+        <div className="lg:flex items-center p-8 lg:p-0 space-y-4">
           <img className="w-32 h-32 mr-3" src={logo2} alt="" />
           <div>
             <h4 className="text-xl  font-semibold mb-2">Excellent Customer Service</h4>
@@ -45,7 +45,7 @@ const PeopleLike = () => {
             </p>
           </div>
         </div>
-        <div className="lg:flex items-center">
+        <div className="lg:flex items-center p-8 lg:p-0 space-y-4">
           <img className="w-36 h-32" src={logo3} alt="" />
           <div>
             <h4 className="text-xl font-semibold mb-2">Engage with Your Customers</h4>
