@@ -26,29 +26,29 @@ const GalarySection = () => {
         the world.
       </p>
       <div className="grid grid-cols-1 lg:grid-cols-2  gap-4">
-        <div  data-aos="zoom-in"  data-aos-offset="100">
+        <div  data-aos="fade-down"  data-aos-delay="50">
           <img
-            className="w-full h-[400px] rounded-md p-3 lg:p-0"
+            className="w-full h-[430px] rounded-md p-3 lg:p-0"
             src={galary1}
             alt=""
           />
         </div>
         <div className=" grid grid-cols-1 lg:grid-cols-2 gap-2">
-          <div data-aos="zoom-in" data-aos-offset="100">
+          <div data-aos="fade-down" data-aos-delay="200">
             <img
               className="w-full  h-56 rounded-md p-3 lg:p-0"
               src={galary2}
               alt=""
             />
           </div>
-          <div  data-aos="zoom-in" data-aos-offset="100" >
+          <div  data-aos="zoom-in-up" data-aos-offset="200" >
             <img
               className="w-full h-56 rounded-md p-3 lg:p-0"
               src={galary3}
               alt=""
             />
           </div>
-          <div data-aos="zoom-in" data-aos-offset="100">
+          <div data-aos="zoom-in" data-aos-delay="100">
             <img
               className="w-full h-48 rounded-md p-3 lg:p-0"
               src={galary4}
@@ -63,21 +63,21 @@ const GalarySection = () => {
             />
           </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 p-3">
-          <div data-aos="zoom-in"  data-aos-offset="100">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 p-3 lg:p-0">
+          <div data-aos="zoom-in"  data-aos-offset="200">
             <img className="h-56 w-full" src={galary7} alt="" />
           </div>
-          <div data-aos="zoom-in" data-aos-offset="100">
+          <div data-aos="zoom-in" data-aos-offset="200">
             <img className="h-56 w-full" src={galary8} alt="" />
           </div>
-          <div  data-aos="zoom-in" data-aos-offset="100">
+          <div  data-aos="zoom-in" data-aos-offset="300">
             <img className="h-56 w-full" src={galary9} alt="" />
           </div>
           <div  data-aos="zoom-in-down" data-aos-offset="100">
             <img className="h-56 w-full" src={galary10} alt="" />
           </div>
         </div>
-        <div  data-aos="zoom-in-down" data-aos-offset="100">
+        <div  data-aos="zoom-in-down" data-aos-offset="200">
           <img
             className="w-full h-[460px] rounded-md p-3 lg:p-0"
             src={galary6}
