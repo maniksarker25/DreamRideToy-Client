@@ -18,8 +18,7 @@ const Banner = () => {
                 Find Your Dream Car Toys Form Here
               </h2>
               <p className="text-white my-2 lg:my-4">
-                Experience the thrill of imagination and adventure with Dream
-                Ride Toys! Discover a world of endless possibilities as you
+                Experience the thrill of imagination and adventure with Car Toy Express! Discover a world of endless possibilities as you
                 explore our vast collection of premium car toys.
               </p>
               <div>
@@ -42,8 +41,7 @@ const Banner = () => {
                 Find Your Dream Car Toys Form Here
               </h2>
               <p className="text-white my-4">
-                Experience the thrill of imagination and adventure with Dream
-                Ride Toys! Discover a world of endless possibilities as you
+                Experience the thrill of imagination and adventure with Car Toy Express! Discover a world of endless possibilities as you
                 explore our vast collection of premium car toys.
               </p>
               <div>
@@ -66,8 +64,7 @@ const Banner = () => {
                 Find Your Dream Car Toys Form Here
               </h2>
               <p className="text-white my-4">
-                Experience the thrill of imagination and adventure with Dream
-                Ride Toys! Discover a world of endless possibilities as you
+                Experience the thrill of imagination and adventure with Car Toy Express! Discover a world of endless possibilities as you
                 explore our vast collection of premium car toys.
               </p>
               <div>
@@ -90,8 +87,7 @@ const Banner = () => {
                 Find Your Dream Car Toys Form Here
               </h2>
               <p className="text-white my-4">
-                Experience the thrill of imagination and adventure with Dream
-                Ride Toys! Discover a world of endless possibilities as you
+                Experience the thrill of imagination and adventure with Car Toy Express! Discover a world of endless possibilities as you
                 explore our vast collection of premium car toys.
               </p>
               <div>

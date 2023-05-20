@@ -3,6 +3,7 @@ import { authContext } from "../../Provider/AuthProvider";
 import LoadingSpiner from "../LoadingSpiner/LoadingSpiner";
 import MyToyRow from "./MyToyRow";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const MyToy = () => {
   const { user } = useContext(authContext);
@@ -12,6 +13,7 @@ const MyToy = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [myToy, setToy] = useState({});
   const [id, setId] = useState(null);
+  useTitle('My Toy')
   // const [sortBy, setSortBy] = useState("");
   // console.log(sortBy);
   const url = `http://localhost:5000/myToys?email=${user?.email}`;
@@ -154,7 +156,7 @@ const MyToy = () => {
                             <span className="label-text">Price</span>
                           </label>
                           <input
-                            type="text"
+                            type="number"
                             name="price"
                             defaultValue={myToy.price}
                             placeholder="Price"

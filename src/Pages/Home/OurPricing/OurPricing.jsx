@@ -19,8 +19,8 @@ const OurPricing = () => {
           </div>
         </div>
       </div>
-      <div className="lg:w-4/5 mx-auto lg:flex space-y-6 lg:space-y-0 p-4  justify-between mt-16 gap-4">
-        <div className="text-center bg-[#F7F8FA] p-12 lg:w-80 w-full rounded-lg shadow-md ">
+      <div className="lg:w-6/7 mx-auto lg:flex space-y-6 lg:space-y-0 p-4 lg:p-16  justify-between mt-12 gap-4">
+        <div className="text-center bg-[#F7F8FA] p-12  w-full rounded-lg shadow-md ">
           <p className="text-[#AE9678] bg-white p-8 rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ const OurPricing = () => {
             Buy Now
           </button>
         </div>
-        <div className="text-center bg-[#F7F8FA] p-12 lg:w-80 w-full rounded-lg shadow-md ">
+        <div className="text-center bg-[#F7F8FA] p-12  w-full rounded-lg shadow-md ">
           <p className="text-[#AE9678] bg-white p-8 rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@ const OurPricing = () => {
             Buy Now
           </button>
         </div>
-        <div className="text-center bg-[#F7F8FA] p-12 lg:w-80 w-full  rounded-lg shadow-md ">
+        <div className="text-center bg-[#F7F8FA] p-12 w-full  rounded-lg shadow-md ">
           <p className="text-[#AE9678] bg-white p-8 rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"

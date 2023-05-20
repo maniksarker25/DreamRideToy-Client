@@ -2,11 +2,13 @@ import { Rating } from "@smastrom/react-rating";
 import { useEffect, useState } from "react";
 import {  useParams} from "react-router-dom";
 import LoadingSpiner from "../LoadingSpiner/LoadingSpiner";
+import useTitle from "../../hooks/useTitle";
 
 const SingleToyDetails = () => {
   const id = useParams().id;
   const [loading,setLoading] = useState(true);
   const [toy,setToy] = useState([]);
+  useTitle('Toy Details')
   useEffect(()=>{
     setLoading(true)
     fetch(`http://localhost:5000/allToys/${id}`)

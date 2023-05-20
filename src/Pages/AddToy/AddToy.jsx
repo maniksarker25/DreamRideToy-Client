@@ -2,9 +2,11 @@ import { useContext } from "react";
 import { authContext } from "../../Provider/AuthProvider";
 import LoadingSpiner from "../LoadingSpiner/LoadingSpiner";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const AddToy = () => {
   const { user,loading } = useContext(authContext);
+  useTitle('Add Toy')
   if(loading){
     return <LoadingSpiner/>
   }
@@ -116,7 +118,7 @@ const AddToy = () => {
                 <span className="label-text font-semibold">Price</span>
               </label>
               <input
-                type="text"
+                type="number"
                 placeholder="Price"
                 required
                 name="price"

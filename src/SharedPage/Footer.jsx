@@ -1,4 +1,4 @@
-import logo from "../assets/dreamLogo.png";
+import logo from "../assets/logo/carToyExpress.png";
 import { FaFacebook,FaInstagram,FaGithub } from "react-icons/fa";
 
 const Footer = () => {
@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="-mt-8">
           <img className="w-32 h-32" src={logo} alt="" />
           <p>
-            Dream Ride Toy
+            Car Toy Express
             <br />
             World Best Car Toy House
           </p>

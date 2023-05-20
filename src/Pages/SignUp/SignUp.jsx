@@ -3,12 +3,14 @@ import signUpImg from '../../assets/login/login.jpg'
 import { useContext, useState } from "react";
 import { authContext } from "../../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import useTitle from "../../hooks/useTitle";
 
 const SignUp = () => {
   const { createUser, logOut,setLoading } = useContext(authContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
+  useTitle('SignUp')
   const handleSignUp = (event) => {
     event.preventDefault();
     const form = event.target;

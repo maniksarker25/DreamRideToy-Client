@@ -17,7 +17,7 @@ const PeopleLike = () => {
         </div>
       </div>
       <img
-        className="lg:h-[400px]  h-64 rounded-lg top-10 w-4/5 mx-auto  -mt-40 lg:-mt-72"
+        className="lg:h-[400px] h-64 rounded-lg top-10 w-4/5 mx-auto  -mt-40 lg:-mt-72"
         src={img1}
         alt=""
       />

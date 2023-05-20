@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import ToyList from "./ToyList";
 import LoadingSpiner from "../LoadingSpiner/LoadingSpiner";
+import useTitle from "../../hooks/useTitle";
 
 const AllToy = () => {
   const [toys, setToys] = useState([]);
   const [loading,setLoading] = useState(true);
+  useTitle('All Toy')
   useEffect(() => {
     setLoading(true)
     fetch("http://localhost:5000/allToys")
@@ -48,7 +50,7 @@ const AllToy = () => {
           </thead>
           <tbody>
             {
-                toys.slice(0,20).map((toy,i)=><ToyList key={toy._id} i={i} toy={toy}></ToyList>)
+                toys.map((toy,i)=><ToyList key={toy._id} i={i} toy={toy}></ToyList>)
             }
            
           </tbody>
