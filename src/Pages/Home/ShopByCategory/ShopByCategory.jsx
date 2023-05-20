@@ -9,7 +9,7 @@ const ShopByCategory = () => {
   const [loading,setLoading] = useState(true);
   useEffect(() => {
     setLoading(true)
-    fetch("http://localhost:5000/allToys")
+    fetch("https://dream-ride-toy-server.vercel.app/allToys")
       .then((res) => res.json())
       .then((data) => {
         setToys(data);

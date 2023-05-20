@@ -25,7 +25,7 @@ const AddToy = () => {
     const description = form.description.value;
     const toy = {toyName,pictureUrl,sellerName,sellerEmail,sub_category,price,rating,availableQuantity,description};
     console.log(toy)
-    fetch('http://localhost:5000/addToy',{
+    fetch('https://dream-ride-toy-server.vercel.app/addToy',{
         method:'POST',
         headers:{'content-type':'application/json'},
         body:JSON.stringify(toy)

@@ -11,7 +11,7 @@ const SingleToyDetails = () => {
   useTitle('Toy Details')
   useEffect(()=>{
     setLoading(true)
-    fetch(`http://localhost:5000/allToys/${id}`)
+    fetch(`https://dream-ride-toy-server.vercel.app/allToys/${id}`)
     .then(res=>res.json())
     .then(data=>{
       setToy(data)

@@ -16,7 +16,7 @@ const MyToy = () => {
   useTitle('My Toy')
   // const [sortBy, setSortBy] = useState("");
   // console.log(sortBy);
-  const url = `http://localhost:5000/myToys?email=${user?.email}`;
+  const url = `https://dream-ride-toy-server.vercel.app/myToys?email=${user?.email}`;
   useEffect(() => {
     setLoading(true);
     fetch(url)
@@ -50,7 +50,7 @@ const MyToy = () => {
     const description = form.description.value;
     const updatedToy = { price, availableQuantity, description };
     // console.log(updatedToy)
-    fetch(`http://localhost:5000/toy/${id}`, {
+    fetch(`https://dream-ride-toy-server.vercel.app/toy/${id}`, {
       method: "PATCH",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(updatedToy),
@@ -73,7 +73,7 @@ const MyToy = () => {
     const sortOrder = e.target.value;
     // setSortBy(sortOrder);
     setLoading(true);
-    fetch("http://localhost:5000/myToyShort?sort=" + sortOrder)
+    fetch("https://dream-ride-toy-server.vercel.app/myToyShort?sort=" + sortOrder)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data)

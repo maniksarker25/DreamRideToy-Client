@@ -9,7 +9,7 @@ const AllToy = () => {
   useTitle('All Toy')
   useEffect(() => {
     setLoading(true)
-    fetch("http://localhost:5000/allToys")
+    fetch("https://dream-ride-toy-server.vercel.app/allToys")
       .then((res) => res.json())
       .then((data) => {
         setToys(data)
@@ -23,7 +23,7 @@ const AllToy = () => {
     event.preventDefault();
     const form = event.target;
     const searchName = form.search.value;
-    fetch(`http://localhost:5000/toy/${searchName}`)
+    fetch(`https://dream-ride-toy-server.vercel.app/toy/${searchName}`)
     .then(res=>res.json())
     .then(data=> setToys(data))
   }
