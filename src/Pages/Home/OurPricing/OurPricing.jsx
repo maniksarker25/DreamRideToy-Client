@@ -3,9 +3,9 @@ const OurPricing = () => {
     <div className="mt-32  p-4 lg:p-0">
       <div
         className="hero h-[300px]"
-        style={{
-          backgroundImage: `url("https://i.ibb.co/YdhLV1v/annie-spratt-h-Cb3l-IB8-L8-E-unsplash.jpg")`,
-        }}
+        // style={{
+        //   backgroundImage: `url("https://i.ibb.co/YdhLV1v/annie-spratt-h-Cb3l-IB8-L8-E-unsplash.jpg")`,
+        // }}
       >
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">

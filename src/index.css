@@ -37,3 +37,7 @@
 .btn-actived{
   @apply bg-red-600 px-4 py-2
 }
+
+.hero{
+  background-image: url(../src/assets/aboutUs/aboutUsBanner.jpg);
+}
