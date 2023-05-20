@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 
 const ToyList = ({toy,i}) => {
-    const {_id,toyName,sellerName,price,sub_category,availableQuantity,pictureUrl} = toy;
+    const {_id,toyName,sellerName,price,sub_category,availableQuantity} = toy;
     return (
              <tr>
               <th>{i + 1}</th>
