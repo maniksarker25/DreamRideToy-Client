@@ -143,7 +143,7 @@ const AddToy = () => {
                 <span className="label-text font-semibold">Available quantity</span>
               </label>
               <input
-                type="text"
+                type="number"
                 placeholder="Available quantity"
                 name="quantity"
                 required
