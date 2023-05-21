@@ -23,7 +23,7 @@ const Login = () => {
     setSuccess('');
     signIn(email, password)
       .then((result) => {
-        // const loggedUser = result.user;
+        const loggedUser = result.user;
         setSuccess("User Logged in Successfully");
         navigate(from, { replace: true });
         form.reset();

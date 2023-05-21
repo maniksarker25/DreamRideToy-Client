@@ -4,7 +4,7 @@ import { FaFacebook,FaInstagram,FaGithub } from "react-icons/fa";
 const Footer = () => {
   return (
     <div className="bg-black mt-20 ">
-      <footer className="footer max-w-screen-xl text-white mx-auto px-10 py-20  ">
+      <footer className="footer max-w-screen-xl text-white mx-auto px-10 pt-20 pb-6s  ">
         <div className="-mt-8">
           <img className="w-32 h-32" src={logo} alt="" />
           <p>
@@ -12,6 +12,7 @@ const Footer = () => {
             <br />
             World Best Car Toy House
           </p>
+       
         </div>
         <div>
           <span className="footer-title">Services</span>
@@ -49,9 +50,13 @@ const Footer = () => {
           <FaInstagram className="w-6 h-6 cursor-pointer"/>
           <FaGithub className="w-6 h-6 cursor-pointer"/>
         </div>
-
         </div>
       </footer>
+      <div
+       className="text-white text-center pt-8  pb-20">
+        <hr className="max-w-screen-md mx-auto mb-4" />
+       Copyright © 2023 - All right reserved by Car Toy Express
+      </div>
     </div>
   );
 };

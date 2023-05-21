@@ -2,7 +2,7 @@ const OurPricing = () => {
   return (
     <div className="mt-32  p-4 lg:p-0">
       <div
-        className="hero h-[300px]"
+        className="hero pricing-img h-[300px]"
         // style={{
         //   backgroundImage: `url("https://i.ibb.co/YdhLV1v/annie-spratt-h-Cb3l-IB8-L8-E-unsplash.jpg")`,
         // }}
