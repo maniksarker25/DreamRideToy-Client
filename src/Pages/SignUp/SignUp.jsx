@@ -25,6 +25,7 @@ const SignUp = () => {
       setError("Password must have 6 character");
       return;
     }
+    // create user
     createUser(email, password)
       .then((result) => {
         const createdUser = result.user;

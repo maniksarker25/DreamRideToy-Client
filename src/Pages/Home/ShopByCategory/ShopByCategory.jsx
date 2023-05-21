@@ -7,6 +7,7 @@ import LoadingSpiner from "../../LoadingSpiner/LoadingSpiner";
 const ShopByCategory = () => {
   const [toys, setToys] = useState([]);
   const [loading,setLoading] = useState(true);
+  // load all Toys
   useEffect(() => {
     setLoading(true)
     fetch("https://dream-ride-toy-server.vercel.app/allToys")
@@ -16,6 +17,7 @@ const ShopByCategory = () => {
         setLoading(false)
       });
   }, []);
+  // set loader when data is in loading state
   if(loading){
     return <LoadingSpiner/>
   }

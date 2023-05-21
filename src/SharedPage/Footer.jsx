@@ -1,5 +1,5 @@
 import logo from "../assets/logo/carToyExpress.png";
-import { FaFacebook,FaInstagram,FaGithub } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -8,11 +8,10 @@ const Footer = () => {
         <div className="-mt-8">
           <img className="w-32 h-32" src={logo} alt="" />
           <p>
-            Car Toy Express
+            Dream Ride Toy
             <br />
             World Best Car Toy House
           </p>
-       
         </div>
         <div>
           <span className="footer-title">Services</span>
@@ -45,17 +44,16 @@ const Footer = () => {
           <button className=" primary-btn mt-2 rounded-lg ">
             Subscribe Now
           </button>
-        <div className="flex gap-4 mt-4">
-        <FaFacebook className="w-6 h-6 cursor-pointer"/>
-          <FaInstagram className="w-6 h-6 cursor-pointer"/>
-          <FaGithub className="w-6 h-6 cursor-pointer"/>
-        </div>
+          <div className="flex gap-4 mt-4">
+            <FaFacebook className="w-6 h-6 cursor-pointer" />
+            <FaInstagram className="w-6 h-6 cursor-pointer" />
+            <FaGithub className="w-6 h-6 cursor-pointer" />
+          </div>
         </div>
       </footer>
-      <div
-       className="text-white text-center pt-8  pb-20">
+      <div className="text-white text-center pt-8  pb-20">
         <hr className="max-w-screen-md mx-auto mb-4" />
-       Copyright © 2023 - All right reserved by Car Toy Express
+        Copyright © 2023 - All right reserved by Dream Ride Toy
       </div>
     </div>
   );

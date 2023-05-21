@@ -8,7 +8,8 @@ const SingleToyDetails = () => {
   const id = useParams().id;
   const [loading,setLoading] = useState(true);
   const [toy,setToy] = useState([]);
-  useTitle('Toy Details')
+  useTitle('Toy Details');
+  // load single toy details
   useEffect(()=>{
     setLoading(true)
     fetch(`https://dream-ride-toy-server.vercel.app/allToys/${id}`)

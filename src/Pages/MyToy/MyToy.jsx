@@ -14,8 +14,7 @@ const MyToy = () => {
   const [myToy, setToy] = useState({});
   const [id, setId] = useState(null);
   useTitle('My Toy')
-  // const [sortBy, setSortBy] = useState("");
-  // console.log(sortBy);
+  //load spacific data with email
   const url = `https://dream-ride-toy-server.vercel.app/myToys?email=${user?.email}`;
   useEffect(() => {
     setLoading(true);
@@ -41,7 +40,7 @@ const MyToy = () => {
   const closeModal = () => {
     setIsOpen(false);
   };
-
+// handle edit 
   const handleEdit = (event) => {
     event.preventDefault();
     const form = event.target;
