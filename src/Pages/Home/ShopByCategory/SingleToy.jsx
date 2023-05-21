@@ -8,15 +8,11 @@ const SingleToy = ({ singleToy }) => {
   const { user } = useContext(authContext);
   const handleAlart = () => {
     if (!user) {
-      Swal.fire({
-        title: "You Have To LogIn First",
-        showClass: {
-          popup: "animate__animated animate__fadeInDown",
-        },
-        hideClass: {
-          popup: "animate__animated animate__fadeOutUp",
-        },
-      });
+      Swal.fire(
+        "You Have To Log In First",
+        "Without a login, you can not visit the single toy details page.",
+        "error"
+      );
     }
   };
   return (
