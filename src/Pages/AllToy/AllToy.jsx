@@ -50,7 +50,7 @@ const AllToy = () => {
           </thead>
           <tbody>
             {
-                toys.map((toy,i)=><ToyList key={toy._id} i={i} toy={toy}></ToyList>)
+             toys.length === 0? <h3 className="mt-16 text-4xl  font-semibold">NO Toy In This Name. Please Search Another One!</h3> :  toys.map((toy,i)=><ToyList key={toy._id} i={i} toy={toy}></ToyList>)
             }
            
           </tbody>

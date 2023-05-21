@@ -25,6 +25,7 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const loggedUser = result.user;
+        console.log(loggedUser)
         setSuccess("User Logged in Successfully");
         navigate(from, { replace: true });
         form.reset();

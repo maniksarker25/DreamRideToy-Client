@@ -34,6 +34,7 @@ const SignUp = () => {
           displayName: name,
           photoURL: photoUrl,
         });
+        console.log(createdUser)
         setSuccess("User Create Successfully");
         logOut();
         navigate("/login");
