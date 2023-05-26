@@ -41,7 +41,7 @@ const PeopleLike = () => {
             <p>
               {" "}
               Focus on providing exceptional customer service to create a
-              positive experience for your website visitors.
+              positive experience for your website visitors..
             </p>
           </div>
         </div>
