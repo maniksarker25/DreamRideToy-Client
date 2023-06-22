@@ -18,6 +18,7 @@ const Navbar = () => {
     return <LoadingSpiner/>
   }
   const navItems = (
+    // nave items
     <>
       <NavLink
         to="/"
